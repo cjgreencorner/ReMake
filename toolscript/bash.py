@@ -12,6 +12,9 @@ __status__ = "Finished"
 
 
 # FUNCTIONS
+import time
+
+
 def call_update():
     command = "sudo apt update -y"
     os.system(command)
@@ -19,9 +22,31 @@ def call_update():
     os.system(command)
 
 def install_package():
-    package = "read varpack"
-    os.system(package)
-    command = "sudo apt install $varpack"
+    print('\n1 = MariaDB')
+    print('2 = VNCServer')
+    print('3 = VNCViewer')
+    try:
+        choice = input('What package would you like to install? ')
+        if choice == 1:
+            command = "sudo apt install mariadb-server -y"
+            os.system(command)
+            command = "sudo mysql_secure_installation"
+            os.system(command)
+        if choice == 2:
+            command = "sudo apt install realvnc-vnc-server -y"
+            os.system(command)
+            vnc_setup()
+        if choice == 3:
+            command = "sudo apt install realvnc-vnc-viewer -y"
+            os.system(command)
+            vnc_setup()
+    except ValueError:
+        print('Please give a number')
+
+def vnc_setup():
+    print('Navigate to Interface > VNC > Yes')
+    time.sleep(5)
+    command = "sudo raspi-config"
     os.system(command)
 
 def call_shutdown():

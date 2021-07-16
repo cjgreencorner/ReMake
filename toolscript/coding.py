@@ -10,9 +10,9 @@ _author_ = "Joel Chapon"
 _email_ = "joel.chapon@student.kdg.be"
 _status_ = "Finished"
 
-print('Encoder & decoder.')
 # FUNCTIONS
 def main():
+    print('Encoder & decoder.')
     print('\n1 = Encode text') # Give the user 3 choices
     print('2 = Decode text')
     print('3 = Show history')
@@ -30,7 +30,7 @@ def main():
                 encoded = decoder.get_code(code)
                 print(code, "=", encoded)
                 history = ["Encrypted:\n", code, '  =  ', encoded, "\n\n"]
-                f = open('python/history.txt', 'a')  # Open the history file
+                f = open('history.txt', 'a')  # Open the history file
                 f.writelines(history)  # Write the word down in the history.txt file
                 f.close()  # Close the file
                 input("Press enter to continue.")  # Used for a pause
@@ -44,7 +44,7 @@ def main():
                 encoded = decoder.get_code(data)
                 print(data, '=', encoded)
                 history = ["Encrypted a textfile:\n", path, "\n\n"]
-                h = open('python/history.txt', 'a')
+                h = open('history.txt', 'a')
                 h.writelines(history)
                 h.close()
                 f.close()
@@ -67,7 +67,7 @@ def main():
                 decoded = decoder.get_decode(word)
                 print(word, '=', decoded)
                 history = ["Decrypted:\n", decoded, '  =  ', word, "\n\n"]
-                f = open('python/history.txt', 'a')
+                f = open('history.txt', 'a')
                 f.writelines(history)
                 f.close()
                 input("Press enter to continue.")
@@ -81,7 +81,7 @@ def main():
                 decoded = decoder.get_decode(data)
                 print(data, '=', decoded)
                 history = ["Decrypted a textfile:\n", path, "\n\n"]
-                h = open('python/history.txt', 'a')
+                h = open('history.txt', 'a')
                 h.writelines(history)
                 h.close()
                 f.close()
@@ -102,7 +102,7 @@ def main():
         main()
 
 def show_history():
-    f = open("python/history.txt", "r")
+    f = open("history.txt", "r")
     data = f.read()
     print('\nHistory:\n')
     print(data)

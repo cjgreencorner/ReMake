@@ -14,7 +14,7 @@ __status__ = "Finished"
 
 # FUNCTIONS
 def main():
-    print("1 = Update your system")
+    print("\n1 = Update your system")
     print("2 = Install a package")
     print("3 = Basic calculator")
     print("4 = Print basic system information")
@@ -28,7 +28,6 @@ def main():
             bash.call_update()
             main() # Go back to the main function
         if choice == 2:
-            print('What package would you like to install?')
             bash.install_package()
             time.sleep(5)
             main()
@@ -57,6 +56,8 @@ def main():
     except ValueError: # If the user gives something else then a number.
         print("Please give a number!")
         main()
+
+
 
 if __name__ == '__main__':
     main()
