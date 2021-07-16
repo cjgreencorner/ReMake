@@ -3,18 +3,14 @@
 Simple bash commands
 """""""""""""""""""""
 # IMPORTS
-import os
+import os, time
 
 # AUTHORINFO
 __author__ = "Joel Chapon"
 __email___ = "joel.chapon@student.kdg.be"
 __status__ = "Finished"
 
-
 # FUNCTIONS
-import time
-
-
 def call_update():
     command = "sudo apt update -y"
     os.system(command)
@@ -23,8 +19,10 @@ def call_update():
 
 def install_package():
     print('\n1 = MariaDB')
-    print('2 = VNCServer')
-    print('3 = VNCViewer')
+    print('2 = Xrdp')
+    print('3 = Thunar')
+    print('4 = Gedit')
+
     try:
         choice = input('What package would you like to install? ')
         if choice == 1:
@@ -33,13 +31,16 @@ def install_package():
             command = "sudo mysql_secure_installation"
             os.system(command)
         if choice == 2:
-            command = "sudo apt install realvnc-vnc-server -y"
+            command = "sudo apt-get install xrdp -y"
             os.system(command)
             vnc_setup()
         if choice == 3:
-            command = "sudo apt install realvnc-vnc-viewer -y"
+            command = "sudo apt-get install thunar -y"
             os.system(command)
-            vnc_setup()
+        if choice == 4:
+            command = "sudo apt-get install gedit -y"
+            os.system(command)
+
     except ValueError:
         print('Please give a number')
 
