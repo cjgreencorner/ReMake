@@ -24,42 +24,41 @@ def main():
 
     try:
         choice = int(input("Make a choice: ")) # Ask the user for a number
+        if choice == 1: # This happens if the user chose the first function
+            bash.call_update()
+            main() # Go back to the main function
+        if choice == 2:
+            bash.install_package()
+            time.sleep(5)
+            main()
+        if choice == 3:
+            calculator.main()
+            time.sleep(5)
+            main()
+        if choice == 4:
+            bash.show_info()
+            time.sleep(5)
+            main()
+        if choice == 5:
+            ran_pass_gen.main()
+            time.sleep(5)
+            main()
+        if choice == 6:
+            coding.main()
+            time.sleep(5)
+            main()
+        if choice == 7:
+            bash.call_shutdown()
+        else: # If the user picks another number.
+            print('Pick a number between 1 and 7...')
+            main()
+
+    except NameError:  # If the user gives something else then a number.
+        print("Please give a number!")
+        main()
     except ValueError:  # If the user gives something else then a number.
         print("Please give a number!")
         main()
-    if choice == 1: # This happens if the user chose the first function
-        bash.call_update()
-        main() # Go back to the main function
-    if choice == 2:
-        bash.install_package()
-        time.sleep(5)
-        main()
-    if choice == 3:
-        calculator.main()
-        time.sleep(5)
-        main()
-    if choice == 4:
-        bash.show_info()
-        time.sleep(5)
-        main()
-    if choice == 5:
-        ran_pass_gen.main()
-        time.sleep(5)
-        main()
-    if choice == 6:
-        coding.main()
-        time.sleep(5)
-        main()
-    if choice == 7:
-        bash.call_shutdown()
-    else: # If the user picks another number.
-        print('Pick a number between 1 and 7...')
-        main()
-
-    # except ValueError: # If the user gives something else then a number.
-    #     print("Please give a number!")
-    #     main()
-
 
 
 if __name__ == '__main__':

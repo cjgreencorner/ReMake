@@ -24,7 +24,7 @@ def install_package():
     print('4 = Gedit')
 
     try:
-        choice = input('What package would you like to install? ')
+        choice = int(input('What package would you like to install? '))
         if choice == 1:
             command = "sudo apt install mariadb-server -y"
             os.system(command)
@@ -40,9 +40,12 @@ def install_package():
         if choice == 4:
             command = "sudo apt-get install gedit -y"
             os.system(command)
-
-    except ValueError:
+        else:
+            print('Give a numnber between 1 and 4!')
+            install_package()
+    except NameError:
         print('Please give a number')
+        install_package()
 
 def vnc_setup():
     print('Navigate to Interface > VNC > Yes')
